@@ -10,7 +10,8 @@ df['Ship Date'] = pd.to_datetime(df['Order Date'])
 agent = create_pandas_dataframe_agent(llm, 
                                       df, 
                                       verbose=True,
-                                      allow_dangerous_code=True)
+                                      allow_dangerous_code=True,
+                                      handle_parsing_errors=True)
 
 print("Model Thinking...")
 response = agent.invoke("How many rows of data do we have? And what is the total Sales amount?")
